@@ -299,38 +299,44 @@ columns=fullflexible
 %\subsection{Problem}
 
 \section*{Question :}
-Given two independent events A and B such that P(A) = 0.3, P(B) = 0.6. Find
-\subsection*{(i) P(A and B)}
-\subsection*{(ii) P(A and not B)}
-\subsection*{(iii) P(A or B)}
-\subsection*{(iv) P(neither A nor B)}
+Given two independent events A and B such that \pr {A} = 0.3, \pr {B} = 0.6. Find
+\subsection*{(i) \pr {A \:and\: B}}
+\subsection*{(ii) \pr{A \:and \:not\: B}}
+\subsection*{(iii) \pr{A \:or\: B}}
+\subsection*{(iv) \pr{neither\: A\: nor\: B}}
 \section*{Solution :} 
-Given P(A) = 0.3, P(B) = 0.6.
-\subsection*{(i) P(A and B)}
-As A and B are independent events.\\
-p(A and B) = P($A \cap B$) = P(A)$\times$P(B)\\
-= 0.3 $\times$ 0.6\\
-= 0.18
-\subsection*{(ii) P(A and not B)}
-P(A and not B) = P($A \cap B'$) = P(A) - P($A \cap B$)\\
-= 0.3 - 0.18
-= 0.12
-\subsection*{(iii) P(A or B)}
-P(A or B) = P($A \cup B$)\\
-As we know, P($A \cup B$) = P(A) + P(B) - P($A \cap B$)\\
-p($A \cup B$) = 0.3 + 0.6 - 0.18\\
-P($A \cup B$) = 0.72
-\subsection*{(iv) P(neither A nor B)}
-p(neither A nor B) = P($A' \cap B'$)\\
-As,{ $A' \cap B'$ = ($A \cup $B)'}
-P(neither A nor B) = P(($A \cup B$)')
-= 1-P($A \cup B$)
-= 1-0.72
-= 0.28
-
-\section*{Code}
-The python code is as follows : 
-\lstinputlisting[language=Python]{python1.py}
+Given \pr{A} = 0.3, \pr{B} = 0.6.
+\subsection*{(i) \pr{A \:and\: B}}
+As A and B are independent events.
+\begin{align}
+	\pr{A \:and\: B} = \pr{AB} = \pr{A}\times\pr{B}\\
+	= 0.3 \times 0.6\nonumber \\ 
+	= 0.18\nonumber
+\end{align}
+\subsection*{(ii) \pr{A \:and\: not\: B}}
+\begin{align}	
+	\pr{A \:and\: not\: B} = \pr{AB^{\prime}}\\
+	= 0.3 \times (1-0.6)\nonumber\\
+	= 0.12\nonumber
+\end{align}
+\subsection*{(iii) \pr{A \:or\: B}}
+\begin{align}
+	\pr{A \:or\: B} = \pr{A + B}\\
+\end{align}
+As we know,
+\begin{align}
+	\pr{A + B} = \pr{AB^{\prime}} + \pr{A^{\prime} B} + \pr{AB}\\
+	\pr{A + B} = (0.3)\times(1-0.6) + (1-0.3)(0.6) + (0.3)(0.6)\nonumber\\
+	\pr{A + B} = 0.72\nonumber
+\end{align}
+\subsection*{(iv) \pr{neither \:A \:nor\: B}}
+\begin{align}
+	\pr{neither \: A\: nor\: B} = \pr{A^{\prime} B^{\prime}}\\
+	As ,{ A^{\prime} B^{\prime}} = {(A + B)^{\prime}}\\
+	\pr{neither\: A \:nor\: B} = \pr{A^{\prime}}\times \pr{B^{\prime}}\\
+	= (1-0.3)\times(1-0.6)\nonumber\\
+	= 0.28\nonumber
+\end{align}
 \end{document}
 
 

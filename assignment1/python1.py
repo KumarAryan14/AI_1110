@@ -3,9 +3,9 @@ def main():
     b = float(input('Enter probability of B :'))
 
     P_A_and_B = a*b
-    P_A_andNot_B = a - a*b
-    P_A_or_B = a + b - a*b
-    P_neither_A_nor_B = 1 - P_A_or_B
+    P_A_andNot_B = a*(1-b)
+    P_A_or_B = a*(1-b) + b*(1-a) + a*b
+    P_neither_A_nor_B = (1-a)*(1-b)
 
     print('P(A and B) = ',P_A_and_B)
     print('P(A and not B) = ',P_A_andNot_B)
