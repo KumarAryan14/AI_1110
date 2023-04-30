@@ -300,42 +300,44 @@ columns=fullflexible
 
 \textbf{Question : }Given two independent events A and B such that \pr {A} = 0.3, \pr {B} = 0.6. Find
 \begin{enumerate}
-	\item \pr{A \:and\: B}
-	\item \pr{A \:and \:not\: B}
-	\item \pr{A \:or\: B}
-	\item \pr{neither\: A\: nor\: B}
+	\item \pr{AB}
+	\item \pr{AB^{\prime}}
+	\item \pr{A + B}
+	\item \pr{A^{\prime}B^{\prime}}
 
 \end{enumerate}
 \textbf{Solution : }Given \pr{A} = 0.3, \pr{B} = 0.6.
 \begin{enumerate}
-	\item \pr{A \:and\: B}
+	\item \pr{AB} :
 	As A and B are independent events.
 	\begin{align}
-		\pr{A \:and\: B} = \pr{AB} = \pr{A}\times\pr{B}\\
+		\pr{AB} = \pr{A}\times\pr{B}\\
 		= 0.3 \times 0.6\nonumber \\ 
 		= 0.18\nonumber
 	\end{align}
-	\item \pr{A \:and\: not\: B}
+\item \pr{AB^{\prime}} :
 	\begin{align}	
-		\pr{A \:and\: not\: B} = \pr{AB^{\prime}}\\
 		= 0.3 \times (1-0.6)\nonumber\\
 		= 0.12\nonumber
 	\end{align}
-	\item \pr{A \:or\: B}
+	\item \pr{A + B} :
+	As we know, by Boolean algebra
 	\begin{align}
-		\pr{A \:or\: B} = \pr{A + B}
+		= AB^{\prime} + A^{\prime}B + AB\\
+		= A(B + B^{\prime}) + A^{\prime}B\\
+		= A + A^{\prime}B\\         
+		= A + B
 	\end{align}
-	As we know,
+	Since A and B are independent,
 	\begin{align}
 		\pr{A + B} = \pr{AB^{\prime}} + \pr{A^{\prime} B} + \pr{AB}\\
 		\pr{A + B} = (0.3)\times(1-0.6) + (1-0.3)(0.6) + (0.3)(0.6)\nonumber\\
 		\pr{A + B} = 0.72\nonumber
 	\end{align}
-	\item \pr{neither \:A \:nor\: B}
+\item \pr{A^{\prime}B^{\prime}} :
 	\begin{align}
-		\pr{neither \: A\: nor\: B} = \pr{A^{\prime} B^{\prime}}\\
 		As ,{ A^{\prime} B^{\prime}} = {(A + B)^{\prime}}\\
-		\pr{neither\: A \:nor\: B} = \pr{A^{\prime}}\times \pr{B^{\prime}}\\
+		= \pr{A^{\prime}}\times \pr{B^{\prime}}\\
 		= (1-0.3)\times(1-0.6)\nonumber\\
 		= 0.28\nonumber
 	\end{align}
