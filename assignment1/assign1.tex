@@ -316,29 +316,28 @@ columns=fullflexible
 		= 0.18\nonumber
 	\end{align}
 \item \pr{AB^{\prime}} :
-	\begin{align}	
+	Since A and B are independent,
+	\begin{align}
+		\pr{AB^{\prime}} = \pr{A}\times\pr{B^{\prime}}\\
 		= 0.3 \times (1-0.6)\nonumber\\
 		= 0.12\nonumber
 	\end{align}
 	\item \pr{A + B} :
-	As we know, by Boolean algebra
+	As we know, 
 	\begin{align}
-		= AB^{\prime} + A^{\prime}B + AB\\
-		= A(B + B^{\prime}) + A^{\prime}B\\
-		= A + A^{\prime}B\\         
-		= A + B
-	\end{align}
-	Since A and B are independent,
-	\begin{align}
-		\pr{A + B} = \pr{AB^{\prime}} + \pr{A^{\prime} B} + \pr{AB}\\
-		\pr{A + B} = (0.3)\times(1-0.6) + (1-0.3)(0.6) + (0.3)(0.6)\nonumber\\
+		\pr{A + B} = \pr{A} + \pr{B} -\pr{AB}\\
+		\pr{A + B} = 0.3 + 0.6 - 0.18\nonumber\\
 		\pr{A + B} = 0.72\nonumber
 	\end{align}
 \item \pr{A^{\prime}B^{\prime}} :
+	As we know,
 	\begin{align}
-		As ,{ A^{\prime} B^{\prime}} = {(A + B)^{\prime}}\\
-		= \pr{A^{\prime}}\times \pr{B^{\prime}}\\
-		= (1-0.3)\times(1-0.6)\nonumber\\
+		{ A^{\prime} B^{\prime}} = {(A + B)^{\prime}}
+	\end{align}
+	Therefore,
+	\begin{align}
+		\pr{A^{\prime}B^{\prime}} = 1 - \pr{A + B}\\
+		= 1 - 0.72\nonumber\\
 		= 0.28\nonumber
 	\end{align}
 \end{enumerate}
