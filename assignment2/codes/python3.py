@@ -1,37 +1,16 @@
-import random as r
+import itertools
 
-l1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+# create a list of all possible combinations of 4 digits without repeats using permutation function from itertools.
+combinations = list(itertools.permutations(range(10),4))
 
+# calculate the total number of combinations using len function to calculate length of list(combination).
+total_combinations = len(combinations)
 
-l2 = list(l1)
-x1 = r.choice(l2)
-l2.remove(x1)
-x2 = r.choice(l2)
-l2.remove(x2)
-x3 = r.choice(l2)
-l2.remove(x3)
-x4 = r.choice(l2)
+# count the number of combinations that open the suitcase letting correct sequence be (1, 2, 3, 4)
+correct_combinations = sum([1 for c in combinations if c == (1, 2, 3, 4)])
 
-print('Let the password be :',x1,x2,x3,x4)
+# calculating the probability of guessing the right sequence
+probability = correct_combinations / total_combinations
 
-simul = 1555559
-j = 0
-
-ans = x1*1000+x2*100+x3*10+x4
-number = 0
-for i in range(0, simul):
-    l3 = list(l1)
-    t1 = r.choice(l3)
-    l3.remove(t1)
-    t2 = r.choice((l3))
-    l3.remove(t2)
-    t3 = r.choice(l3)
-    l3.remove(t3)
-    t4 = r.choice(l3)
-    number = t1*1000+t2*100+t3*10+t4
-    password = x1*1000+x2*100+x3*10+x4
-    if number == password:
-        j = j +1
-
-print('Probability : ',j/simul)
+print('The probability of guessing the right sequence is :',probability)
 
