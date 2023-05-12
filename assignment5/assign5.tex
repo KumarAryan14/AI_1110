@@ -313,7 +313,7 @@ Since X has binomial distribution,
 Therefore,
 \begin{align}
 	\pr{X<=1} &= F_{X}(1)\\
-	&= \sum_{r=0}^{1}\comb{10}{r}\brak{0.05}^r\brak{0.95}^{n-r}\\
+i	&= \sum_{r=0}^{1}\comb{10}{r}\brak{0.05}^r\brak{0.95}^{n-r}\\
 	&= 0.914
 \end{align}
 Now for Gaussian distribution, 
@@ -333,7 +333,42 @@ Where 0.5 is the correction factor .Therefore,
 	P(x) &= \int_{-\infty}^{1.5}\brak{\frac{1}{\sqrt{2\pi\sigma^{2}}}}e^{\brak{\frac{-\brak{{x - \mu}}^{2}}{2{\sigma}^{2}}}} dx\\
 	&= 0.926
 \end{align}
-The results obtained from both binomial and gaussian distribution are quite close.
+The results obtained from both binomial and gaussian distribution are quite close.\\
+\textbf{Showing binomial can be approximated by Gaussian :}\\
+Let,
+\begin{align}
+	W &= \comb{N}{n}\brak{p}^n\brak{q}^{N-n}\\
+	&= \frac{N!}{(N-n)!\times n!}\brak{p}^n\brak{q}^{N-n}
+\end{align}
+Using the approximation that,
+\begin{align}
+	ln\brak{x!} = xln\brak{x} - x
+\end{align}
+Therefore,
+\begin{align}
+	lnW = Nln\brak{N}-\brak{(N-n)ln\brak{N-n}-lnq}-n\brak{ln\brak{n}-lnp}
+\end{align}
+For finding most probable value of n,
+\begin{align}
+	\frac{\partial W}{\partial n} &= ln\brak{N-n}-ln\brak{n}+ln\brak{p}-ln\brak{q} = 0\\
+	\implies &\frac{\brak{N-n}p}{n\brak{1-p}} = 1\\
+	\implies &n^* = Np
+\end{align}
+Where n$^*$ denotes most probable value of n. Similairly,
+\begin{align}
+	\frac{\partial^2 W(n^*)}{\partial n^2} &= -\frac{1}{Npq} 
+\end{align}
+Now with the help of Taylor's series,
+\begin{align}
+	f\brak x = f\brak{x_o} + \brak{x-x_o}f'\brak{x_o} + \frac{\brak{x-x_o}^2}{2!}f''(x_o) ....
+\end{align}
+Where ln(W) denotes f(x)
+\begin{align}
+	lnW &= lnW\brak{n^*} - \frac{\brak{n-n^*}^2}{2!}\times \frac{1}{Npq}\\
+	W &= W\brak{n^*}e^{\brak{\frac{-\brak{{n-n^*}}^2}{2\times Npq}}}\\
+	W &= W\brak{n^*}e^{\brak{\frac{-\brak{{n-\mu}}^2}{2\sigma^2}}}
+\end{align}
+Expression (28) is similar to expression (15).
 \end{document}
 
 
