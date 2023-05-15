@@ -335,40 +335,34 @@ Where 0.5 is the correction factor .Therefore,
 \end{align}
 The results obtained from both binomial and gaussian distribution are quite close.\\
 \textbf{Showing binomial can be approximated by Gaussian :}\\
-Let,
+The Binomial distribution can be approximated by Gaussian distribution when the number of trials is large and probability of success is not too close to 0 or 1.\\
+Binomial distribution to obtain probability of X success in n trials with probability p is given by:
 \begin{align}
-	W &= \comb{N}{n}\brak{p}^n\brak{q}^{N-n}\\
-	&= \frac{N!}{(N-n)!\times n!}\brak{p}^n\brak{q}^{N-n}
+	\pr{X = k} = \comb{n}{k}\brak{p}^k\brak{1-p}^{n-k}
 \end{align}
-Using the approximation that,
+Using Stirilings's approximation for factorial,
 \begin{align}
-	ln\brak{x!} = xln\brak{x} - x
+	\comb{n}{k} \approx \sqrt{2\pi n}\times \brak{\frac{n}{e}}^{n}\times \brak{\frac{1}{k}}^{k}\times \brak{\frac{1}{n-k}}^{n-k}
 \end{align}
-Therefore,
+Subtituting this approximation into the binomial distribution formula, we get:
 \begin{align}
-	lnW = Nln\brak{N}-\brak{(N-n)ln\brak{N-n}-lnq}-n\brak{ln\brak{n}-lnp}
+	\pr{X = k} \approx \brak{\frac{1}{\sqrt{2\pi np(1-p)}}\times \brak{\frac{n}{e}}^n\times \brak{\frac{p}{e}}^k\times \brak{\frac{1-p}{e}}^{n-k}}
 \end{align}
-For finding most probable value of n,
+This expression can be simplified further using the Q function, which is definied as:
 \begin{align}
-	\frac{\partial W}{\partial n} &= ln\brak{N-n}-ln\brak{n}+ln\brak{p}-ln\brak{q} = 0\\
-	\implies &\frac{\brak{N-n}p}{n\brak{1-p}} = 1\\
-	\implies &n^* = Np
+	Q(x) = \brak{\frac{1}{\sqrt{2\pi}}}\times \int_{x}^{\infty}e^\frac{-t^2}{2} dt
 \end{align}
-Where n$^*$ denotes most probable value of n. Similairly,
+The probability of X being less than or equal to k can be expressed as:
 \begin{align}
-	\frac{\partial^2 W(n^*)}{\partial n^2} &= -\frac{1}{Npq} 
+	\pr{X\leq k} \approx Q\brak{\frac{k + 0.5 -\mu}{\sigma}}
 \end{align}
-Now with the help of Taylor's series,
+Where,
 \begin{align}
-	f\brak x = f\brak{x_o} + \brak{x-x_o}f'\brak{x_o} + \frac{\brak{x-x_o}^2}{2!}f''(x_o) ....
+	\mu(Mean) &= np\\
+	\sigma(Standard \: Deviation) &= \sqrt{np(1-p)}
 \end{align}
-Where ln(W) denotes f(x)
-\begin{align}
-	lnW &= lnW\brak{n^*} - \frac{\brak{n-n^*}^2}{2!}\times \frac{1}{Npq}\\
-	W &= W\brak{n^*}e^{\brak{\frac{-\brak{{n-n^*}}^2}{2\times Npq}}}\\
-	W &= W\brak{n^*}e^{\brak{\frac{-\brak{{n-\mu}}^2}{2\sigma^2}}}
-\end{align}
-Expression (28) is similar to expression (15).
+Therefore, Binomial can be approximated by the Gaussian distribution in terms of the Q function.
+
 \end{document}
 
 
