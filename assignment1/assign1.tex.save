@@ -1,3 +1,5 @@
+X
+^X
 
 
 \let\negmedspace\undefined
@@ -177,8 +179,8 @@ columns=fullflexible
 %     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
 
 \vspace{3cm}
-\newcommand*{\comb}[2]{{}^{#1}C_{#2}}
-\title{Probability Assignment 5}
+
+\title{Probability Assignment 1}
 \author{EE22BTECH11210 - KUMAR ARYAN}	
 %\title{
 %	\logo{Matrix Analysis through Octave}{\begin{center}\includegraphics[scale=.24]{tlc}\end{center}}{}{HAMDSP}
@@ -298,74 +300,64 @@ columns=fullflexible
 %\renewcommand{\theequation}{\theenumi}
 %\subsection{Problem}
 
-\textbf{Question : }There are 5\% defective items in a bulk of items. What is the probability that a sample of 10 items will include not more than one defective item ?\\
-\textbf{Solution : }
+\textbf{Question : }Given two independent events A and B such that \pr {A} = 0.3, \pr {B} = 0.6. Find
 \begin{enumerate}
-	\item Let X denote the number of defective items out of 10 items. Clearly, X has the binomial distribution with n = 10 and p = 0.05, being the probability of item being defective.
+	\item \pr{AB}
+	\item \pr{AB^{\prime}}
+	\item \pr{A + B}
+	\item \pr{A^{\prime}B^{\prime}}
+
+\end{enumerate}
+\textbf{Solution : }Given \pr{A} = 0.3, \pr{B} = 0.6.
+\begin{enumerate}
+	\item \pr{AB} :
+	As A and B are independent events.
 	\begin{align}
-		n &= 10\\
-		p &= 0.05\\
-		q &= 1- p = 0.95
+		\implies  \pr{AB} &= \pr{A}\times\pr{B}\\
+		&= 0.3 \times 0.6\nonumber \\ 
+		&= 0.18\nonumber
 	\end{align}
-	Since X has binomial distribution,
+\item \pr{AB^{\prime}} :
+	We know that,
 	\begin{align}
-		\implies P_{X}(r) &= \comb{n}{r}\brak{p}^r\brak{q}^{n-r}\\
-		\implies F_{X}(r) &= \sum_{r=0}^{r}\comb{n}{r}\brak{p}^r\brak{q}^{n-r}
+		B + B^{\prime} = 1
+	\end{align}
+	Hence,
+	\begin{align}
+		\implies &\pr{B + B^{\prime}} = 1\\
+		\implies &\pr{B} + \pr{B^{\prime}} = 1
+	\end{align}
+	\begin{align}
+		\implies \pr{B^{\prime}} &= 1 - \pr{B}\\
+		&= 1 - 0.6\nonumber\\
+		&= 0.4\nonumber
+	\end{align}
+	Since A and B are independent,
+	\begin{align}
+		\implies \pr{AB^{\prime}} &= \pr{A}\times\pr{B^{\prime}}\\
+		&= 0.3 \times 0.4\nonumber\\
+		&= 0.12\nonumber
+	\end{align}
+	\item \pr{A + B} :
+	As we know, 
+	\begin{align}
+		\pr{A+B} &= \pr{A} + \pr{B} -\pr{AB}\\
+		&= 0.3 + 0.6 - 0.18\nonumber\\
+		&= 0.72\nonumber
+	\end{align}
+\item \pr{A^{\prime}B^{\prime}} :
+	As we know,
+	\begin{align}
+		{ A^{\prime} B^{\prime}} = {(A + B)^{\prime}}
 	\end{align}
 	Therefore,
 	\begin{align}
-		\pr{X<=1} &= F_{X}(1)\\
-		&= \sum_{r=0}^{1}\comb{10}{r}\brak{0.05}^r\brak{0.95}^{n-r}\\
-		&= 0.914
-	\end{align}
-	\item Now for Gaussian distribution, 
-	\begin{align}
-		\mu (mean) &= np\\
-		&= 0.5\\
-		\sigma (standard Deviation) &= \sqrt{npq}\\
-		&= 0.6982
-	\end{align}
-	Since binomial is for discrete random variable, we need to add correction factor in bounds. For this case,
-	\begin{align}
-		upper bound &= 1 + 0.5\\
-		&= 1.5
-	\end{align}
-	Where 0.5 is the correction factor .Therefore,
-	\begin{align}
-		P(x) &= \int_{-\infty}^{1.5}\brak{\frac{1}{\sqrt{2\pi\sigma^{2}}}}e^{\brak{\frac{-\brak{{x - \mu}}^{2}}{2{\sigma}^{2}}}} dx\\
-		&= 0.926
-	\end{align}
-	The results obtained from both binomial and gaussian distribution are quite close.\\
-\textbf{Showing binomial can be approximated by Gaussian :}\\
-	\item The Binomial distribution can be approximated by Gaussian distribution when the number of trials is large and probability of success is not too close to 0 or 1.\\
-	Binomial distribution to obtain probability of X success in n trials with probability p is given by:
-	\begin{align}
-		\pr{X = k} = \comb{n}{k}\brak{p}^k\brak{1-p}^{n-k}
-	\end{align}
-	Using Stirilings's approximation for factorial,
-	\begin{align}
-		\comb{n}{k} \approx \sqrt{2\pi n}\times \brak{\frac{n}{e}}^{n}\times \brak{\frac{1}{k}}^{k}\times \brak{\frac{1}{n-k}}^{n-k}
-	\end{align}
-	Subtituting this approximation into the binomial distribution formula, we get:
-	\begin{align}
-		\pr{X = k} \approx \brak{\frac{1}{\sqrt{2\pi np(1-p)}}\times \brak{\frac{n}{e}}^n\times \brak{\frac{p}{e}}^k\times \brak{\frac{1-p}{e}}^{n-k}}
-	\end{align}
-	This expression can be simplified further using the Q function, which is definied as:
-	\begin{align}
-		Q(x) = \brak{\frac{1}{\sqrt{2\pi}}}\times \int_{x}^{\infty}e^\frac{-t^2}{2} dt
-	\end{align}
-	The probability of X being less than or equal to k can be expressed as:
-	\begin{align}
-		\pr{X\leq k} \approx Q\brak{\frac{k + 0.5 -\mu}{\sigma}}
-	\end{align}
-	Where,
-	\begin{align}
-		\mu(Mean) &= np\\
-		\sigma(Standard \: Deviation) &= \sqrt{np(1-p)}
+		\implies \pr{A^{\prime}B^{\prime}} &= \pr{(A + B)^{\prime}}\\
+		&= 1 - \pr{A + B}\nonumber\\
+		&= 1 - 0.72\nonumber\\
+		&= 0.28\nonumber
 	\end{align}
 \end{enumerate}
-Therefore, Binomial can be approximated by the Gaussian distribution in terms of the Q function.
-
 \end{document}
 
 
